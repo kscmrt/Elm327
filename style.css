@@ -1660,3 +1660,76 @@ a.app-card p {
         width: 100%;
     }
 }
+
+/* Mobile Optimizations for Simulation & Setup */
+@media (max-width: 900px) {
+
+    /* Setup Section - Steps */
+    .steps-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .step-arrow {
+        transform: rotate(90deg);
+        margin: 10px 0;
+    }
+
+    /* Simulation Section */
+    .sim-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 60px;
+    }
+
+    .sim-status {
+        margin: 0 auto;
+    }
+
+    .phone-mockup {
+        width: 100%;
+        max-width: 300px;
+        /* Fit within mobile width */
+        height: 580px;
+        transform: none !important;
+        /* Disable rotation on mobile for cleaner look */
+        margin: 0 auto;
+    }
+
+    .phone-mockup:hover {
+        transform: none !important;
+    }
+
+    /* Live Data Grid inside Phone */
+    .live-grid {
+        gap: 5px;
+    }
+
+    .l-item {
+        padding: 5px;
+    }
+
+    .l-item span {
+        font-size: 0.9rem;
+    }
+
+    /* Navbar Mobile Fixes */
+    .nav-inner {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .nav-links li {
+        width: auto;
+    }
+}
