@@ -4,13 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELM327 Teknik Dokümantasyon ve Kullanım Kılavuzu</title>
-    <meta name="description"
-        content="ELM327 bağlantı şeması, protokoller ve kullanım kılavuzu. OBD2 cihazları hakkında teknik bilgiler.">
+    <title>ELM327 PRO | Yeni Nesil Arıza Tespit</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -18,211 +16,431 @@
 
 <body>
 
-    <header class="doc-header">
-        <div class="container header-grid">
-            <div class="logo-area">
-                <div class="logo-icon">
-                    <i class="fas fa-microchip"></i>
+    <div class="circles">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+    </div>
+
+    <nav>
+        <div class="container nav-inner">
+            <div class="logo">ELM<span class="cyan">327</span>.AI</div>
+            <ul class="nav-links">
+                <li><a href="#tech-specs">Teknik</a></li>
+                <li><a href="#features">Yetenekler</a></li>
+                <li><a href="#software">Yazılım</a></li>
+            </ul>
+            <a href="#order" class="nav-cta">
+                <i class="fab fa-whatsapp"></i> Uzmana Danış
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <canvas id="hero-particles"></canvas>
+        <div class="container hero-flex">
+            <div class="hero-text">
+                <div class="badge-new">v1.5 PIC18F25K80</div>
+                <h1>Aracınızın <span class="text-glow" id="typewriter"></span></h1>
+                <p>Tamircilerin kullandığı profesyonel teknolojiyi cebinize getirdik. Arıza tespiti, kod silme ve gizli
+                    özellik açma.</p>
+                <div class="hero-btns">
+                    <a href="#order" class="btn-main">Uzmana Danış <i class="fas fa-arrow-right"></i></a>
+                    <a href="#features" class="btn-sec">Nasıl Çalışır?</a>
                 </div>
-                <div>
-                    <h1>ELM327 <span class="highlight">Master</span></h1>
-                    <div class="status-badge">
-                        <span class="pulse-dot"></span>
-                        <span class="version">v1.5/v2.1 Official Guide</span>
+                <div class="specs">
+                    <div class="spec">
+                        <strong>3000+</strong>
+                        <span>Hata Kodu</span>
+                    </div>
+                    <div class="spec">
+                        <strong>0.1s</strong>
+                        <span>Veri Hızı</span>
+                    </div>
+                    <div class="spec">
+                        <strong>%100</strong>
+                        <span>Uyumluluk</span>
                     </div>
                 </div>
             </div>
-            <div class="trust-badges">
-                <div class="badge-item"><i class="fas fa-check-circle"></i> PIC18F25K80 Chip</div>
-                <div class="badge-item"><i class="fas fa-shield-alt"></i> %100 Orijinal</div>
+            <div class="hero-img-wrapper" id="hero-product-container">
+                <img src="p1.png" alt="ELM327 Ön Yüz" class="hero-product" id="hero-product">
+                <div class="scan-line"></div>
+                <div class="floating-tag t1">
+                    <i class="fas fa-bolt"></i>
+                    <span>Hızlı Bağlantı</span>
+                </div>
+                <div class="floating-tag t2">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Arıza Siler</span>
+                </div>
             </div>
-            <a href="#support" class="support-btn">
-                <i class="fab fa-whatsapp"></i>
-                <span>Uzman Desteği Al</span>
-            </a>
         </div>
     </header>
 
-    <div class="container doc-layout">
-        <aside class="sidebar">
-            <nav class="doc-nav">
-                <h3>İçindekiler</h3>
-                <ul>
-                    <li><a href="#intro">1. Giriş ve Protokoller</a></li>
-                    <li><a href="#compatibility">2. Araç Uyumluluğu</a></li>
-                    <li><a href="#software">3. Yazılım Kurulumu</a></li>
-                    <li><a href="#connection">4. Bağlantı Adımları</a></li>
-                    <li><a href="#troubleshoot">5. Sorun Giderme</a></li>
-                </ul>
-            </nav>
-
-            <div class="sidebar-box">
-                <h4>Cihaz Temini</h4>
-                <p>Piyasada çok fazla "çakma" (bozuk) versiyon bulunmaktadır. Test edilmiş, garantili çip setli cihaz
-                    için:</p>
-                <a href="#support" class="btn-sidebar">Güvenli Cihaz Al</a>
+    <!-- Technical Specs Section -->
+    <section class="comparison-section" id="tech-specs">
+        <div class="container">
+            <div class="section-head center">
+                <h2>Teknik <span class="cyan">Mimari</span> & Mühendislik</h2>
+                <p>Neden PIC18F25K80 Çip? Farkı yaratan teknik detaylar.</p>
             </div>
-        </aside>
 
-        <main class="content">
-            <section id="intro">
-                <h2>1. Giriş: ELM327 Nedir?</h2>
-                <p>ELM327, araçların <strong>ECU (Motor Kontrol Ünitesi)</strong> ile bilgisayar veya telefon arasında
-                    köprü görevi gören bir mikrodenetleyici arayüzüdür. Standart OBDII (On-Board Diagnostics) portu
-                    üzerinden veri okur.</p>
-
-                <div class="code-block">
-                    <div class="code-header">Temel AT Komutları</div>
-                    <code>
-                        > AT Z (Reset)<br>
-                        > AT SP 0 (Otomatik Protokol Seçimi)<br>
-                        > 01 00 (Desteklenen PID'leri Getir)<br>
-                        > 01 0C (Motor Devri - RPM)<br>
-                        > 01 0D (Araç Hızı)
-                    </code>
-                </div>
-
-                <h3>Desteklenen Protokoller</h3>
-                <ul class="tech-list">
-                    <li>SAE J1850 PWM (Ford)</li>
-                    <li>SAE J1850 VPW (GM)</li>
-                    <li>ISO 9141-2 (Chrysler, Avrupa, Asya)</li>
-                    <li>ISO 14230 KWP2000</li>
-                    <li>ISO 15765 CAN (Modern Araçlar)</li>
-                </ul>
-            </section>
-
-            <section id="compatibility">
-                <h2>2. Araç Uyumluluğu</h2>
-                <p>OBD2 standardı ülkemizde ve dünyada aşağıdaki yıllardan sonra zorunlu hale gelmiştir:</p>
-                <div class="info-box warning">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <p>Dikkat: Bazı 2000-2005 arası yerli üretim araçlarda OBD2 soketi olsa bile protokol desteği
-                        olmayabilir (Örn: Tofaş enjeksiyonlu serilerde modifikasyon gerekebilir).</p>
-                </div>
-                <table class="tech-table">
-                    <tr>
-                        <th>Bölge</th>
-                        <th>Benzinli</th>
-                        <th>Dizel</th>
-                    </tr>
-                    <tr>
-                        <td>Avrupa (AB)</td>
-                        <td>2001 sonrası</td>
-                        <td>2004 sonrası</td>
-                    </tr>
-                    <tr>
-                        <td>ABD</td>
-                        <td>1996 sonrası</td>
-                        <td>1996 sonrası</td>
-                    </tr>
-                    <tr>
-                        <td>Japonya</td>
-                        <td>2002 sonrası</td>
-                        <td>2004 sonrası</td>
-                    </tr>
-                </table>
-            </section>
-
-            <section id="software">
-                <h2>3. Yazılım Tavsiyeleri</h2>
-                <p>Donanımın doğru çalışması için kaliteli bir yazılım şarttır. İşte en stabil çalışan uygulamalar:</p>
-
-                <div class="software-grid">
-                    <div class="soft-card">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h4>Torque Pro (Android)</h4>
-                        <p>En popüler ve kapsamlı uygulama. Özelleştirilebilir göstergeler sunar.</p>
-                    </div>
-                    <div class="soft-card">
-                        <i class="fas fa-car"></i>
-                        <h4>Car Scanner (iOS/Android)</h4>
-                        <p>En geniş araç desteğine sahip, Türkçe dil destekli modern arayüz.</p>
-                    </div>
-                    <div class="soft-card">
-                        <i class="fas fa-laptop-code"></i>
-                        <h4>Forscan (PC/Mobile)</h4>
-                        <p>Ford/Mazda grubu için özel geliştirilmiş derinlemesine analiz yazılımı.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="connection">
-                <h2>4. Bağlantı Adımları (Bluetooth)</h2>
-                <ol class="step-list">
-                    <li>Cihazı aracın OBD2 portuna takın (Genelde direksiyon altındadır).</li>
-                    <li>Kontak anahtarını "Açık" (Işıklar yanacak) konumuna getirin. Motoru çalıştırmanıza gerek yoktur.
-                    </li>
-                    <li>Telefonunuzun Bluetooth ayarlarını açın.</li>
-                    <li><strong>OBDII</strong> veya <strong>ELM327</strong> adını bulun.</li>
-                    <li>Eşleşme şifresi sorarsa: <code>1234</code> veya <code>0000</code> deneyin.</li>
-                    <li>Uygulamayı (Örn: Torque) açın ve ayarlardan "Adapter Settings" -> "Connection Type" ->
-                        "Bluetooth" seçin.</li>
-                </ol>
-                <img src="product.png" alt="ELM327 Cihazı" class="doc-image">
-            </section>
-
-            <section id="troubleshoot">
-                <h2>5. Sık Sorulan Sorular ve Hatalar</h2>
-                <details>
-                    <summary>Cihaza bağlanıyor ama ECU'ya bağlanmıyor?</summary>
-                    <p>Genellikle ucuz/klon cihazlarda (Versiyon 2.1 olarak satılan sahte çiplerde) bu sorun yaşanır.
-                        J1850 protokolüne sahip eski Ford/GM araçlarda çalışmaz. Kaliteli bir v1.5 (PIC18F25K80 çipli)
-                        cihaz edinmelisiniz.</p>
-                </details>
-                <details>
-                    <summary>Airbag veya ABS ışığını söndürür mü?</summary>
-                    <p>Standart ELM327 cihazları sadece Motor (Engine) modülüne erişir. ABS ve Airbag için özel cihazlar
-                        veya modifiyeli (switch'li) ELM cihazları gerekir.</p>
-                </details>
-            </section>
-
-            <section id="support" class="master-kit-section">
-                <div class="kit-card">
-                    <div class="kit-image">
-                        <div class="glow-effect"></div>
-                        <img src="product.png" alt="ELM327 Master Kit">
-                    </div>
-                    <div class="kit-content">
-                        <div class="kit-header">
-                            <span class="kit-tag">TEKNİK SERVİS ONAYLI</span>
-                            <h2>ELM327 <span class="highlight">Master Kit</span></h2>
-                            <p>Sıradan cihazlarla vakit kaybetmeyin. %100 garantili, tüm protokollerle uyumlu
-                                profesyonel çözüm.</p>
+            <div class="tech-grid">
+                <!-- Main Chip Architecture -->
+                <div class="tech-card featured">
+                    <div class="tech-header">
+                        <i class="fas fa-microchip chip-icon"></i>
+                        <div>
+                            <h3>PIC18F25K80 Mimari</h3>
+                            <small>ELM327 v1.5 Teknik Spesifikasyonu</small>
                         </div>
+                    </div>
+                    <p class="tech-desc">ELM327DS standardına uygun olarak, RS232 - OBD (On-Board Diagnostics)
+                        yorumlayıcı olarak çalışır. Otomatik protokol tespiti ve gelişmiş güç yönetimi (Power Control)
+                        ile aracınızın ECU'su ile güvenli haberleşme sağlar.</p>
 
-                        <ul class="kit-features">
-                            <li><i class="fas fa-check-circle"></i> <strong>Gerçek v1.5</strong> PIC18F25K80 Çip</li>
-                            <li><i class="fas fa-check-circle"></i> <strong>Ford/Mazda</strong> Gizli Özellik Açma</li>
-                            <li><i class="fas fa-check-circle"></i> <strong>2 Yıl</strong> Birebir Değişim Garantisi
-                            </li>
-                            <li><i class="fas fa-check-circle"></i> <strong>7/24</strong> Teknik Kurulum Desteği</li>
-                        </ul>
+                    <div class="specs-table user-benefit">
+                        <div class="spec-row">
+                            <span class="lbl"><i class="fas fa-battery-full"></i> Akü Koruma:</span>
+                            <span class="val">Otomatik Uyku Modu (&lt;15mA)</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="lbl"><i class="fas fa-bolt"></i> Voltaj Aralığı:</span>
+                            <span class="val">8V-18V (Alternatör Korumalı)</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="lbl"><i class="fas fa-sync"></i> Bağlantı Hızı:</span>
+                            <span class="val">38400 bps (Canlı Veri Akışı)</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="lbl"><i class="fas fa-shield-alt"></i> Güvenlik:</span>
+                            <span class="val">Kısa Devre & Isı Koruması</span>
+                        </div>
+                    </div>
 
-                        <form id="docSupportForm" class="kit-form">
-                            <div class="input-group">
-                                <i class="fas fa-user"></i>
-                                <input type="text" id="name" placeholder="Adınız Soyadınız" required>
-                                <input type="hidden" id="topic" value="cihaz_temin"> <!-- Default to purchase -->
-                            </div>
-                            <button type="submit" class="kit-btn">
-                                <span class="btn-text">
-                                    <small>Stoklarla Sınırlı</small>
-                                    WhatsApp ile Sipariş & Destek
-                                </span>
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
-                        </form>
+                    <div class="tech-highlight">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Bu cihaz, aracınız stop ettiğinde kendini otomatik olarak kapatır. Böylece cihazı sürekli
+                            takılı bıraksanız bile <strong>akünüz asla bitmez.</strong></span>
                     </div>
                 </div>
-            </section>
 
-        </main>
-    </div>
+                <!-- Supported Protocols -->
+                <div class="tech-specs-container">
+                    <div class="tech-card">
+                        <h3><i class="fas fa-network-wired"></i> Desteklenen Protokoller</h3>
+                        <ul class="spec-list">
+                            <li><span class="mono">ISO 15765-4 (CAN)</span> <small>29/11 bit, 250/500 kbaud</small></li>
+                            <li><span class="mono">SAE J1850 PWM</span> <small>41.6 kbaud (Ford Standardı)</small></li>
+                            <li><span class="mono">SAE J1850 VPW</span> <small>10.4 kbaud (GM Standardı)</small></li>
+                            <li><span class="mono">ISO 9141-2</span> <small>5 baud init, auto baud</small></li>
+                            <li><span class="mono">ISO 14230-4 KWP</span> <small>(KWP2000) 5 baud init</small></li>
+                        </ul>
+                    </div>
 
-    <footer class="doc-footer">
-        <p>ELM327 Teknik Rehber &copy; 2024</p>
+                    <div class="tech-card alert">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Clone Cihaz Uyarlısı</h3>
+                        <div class="risk-list">
+                            <div class="risk-item">
+                                <strong>Voltaj Regülasyonu:</strong> Datasheet dışı 19V+ gerilimlerde koruma devresi
+                                yoktur.
+                            </div>
+                            <div class="risk-item">
+                                <strong>Buffer Overflow:</strong> RS232 tampon belleği yetersiz kopyalarda veri
+                                paketleri kaybolur.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="visual-features">
+        <div class="container">
+            <div class="feature-row">
+                <div class="f-img">
+                    <img src="p2.png" alt="ELM327 Yan Görünüm">
+                    <div class="glow-bg"></div>
+                </div>
+                <div class="f-text">
+                    <h2>Kompakt & Güçlü Tasarım</h2>
+                    <p>Aracınızın OBD portuna harika uyum sağlar. Küçük boyutu sayesinde sürüş sırasında ayağınıza
+                        takılmaz, varlığını bile unutursunuz.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Bluetooth 4.0/5.0 Desteği</li>
+                        <li><i class="fas fa-check"></i> Isınma Yapmayan Devre Yapısı</li>
+                        <li><i class="fas fa-check"></i> Darbeye Dayanıklı ABS Plastik</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="technical-capabilities-grid">
+
+                <!-- Advanced Diagnostics Column -->
+                <div class="cap-column">
+                    <div class="cap-head">
+                        <i class="fas fa-stethoscope"></i>
+                        <h3>Derinlemesine Teşhis</h3>
+                    </div>
+                    <ul class="tech-list">
+                        <li>
+                            <span class="cmd-code">P0xxx - P3xxx</span>
+                            <span>Motor & Şanzıman Arıza Kodları (DTC) Okuma/Silme</span>
+                        </li>
+                        <li>
+                            <span class="cmd-code">Freeze Frame</span>
+                            <span>Arıza anındaki motor verilerini (Hız, Devir, Isı) kaydetme</span>
+                        </li>
+                        <li>
+                            <span class="cmd-code">MIL Status</span>
+                            <span>Motor Işığı (Check Engine) Söndürme & Reset</span>
+                        </li>
+                        <li>
+                            <span class="cmd-code">O2 Sensor</span>
+                            <span>Lambda (Oksijen) Sensörü Test Sonuçları</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Live Data & Engineering Column -->
+                <div class="cap-column">
+                    <div class="cap-head">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Canlı Veri Mühendisliği</h3>
+                    </div>
+                    <ul class="tech-list">
+                        <li>
+                            <strong>Load_PCT:</strong>
+                            <span>Motor Yük Değeri (%)</span>
+                        </li>
+                        <li>
+                            <strong>ECT / IAT:</strong>
+                            <span>Motor Suyu & Emme Havası Sıcaklığı (°C)</span>
+                        </li>
+                        <li>
+                            <strong>MAP / MAF:</strong>
+                            <span>Manifold Basıncı & Hava Akış Debisi (g/s)</span>
+                        </li>
+                        <li>
+                            <strong>FRP / Fuel Trim:</strong>
+                            <span>Yakıt Ray Basıncı & Enjektör Düzeltme Oranları</span>
+                        </li>
+                        <li>
+                            <strong>Timing Advance:</strong>
+                            <span>Ateşleme Avans Açısı (silindir başına)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Coding & Special Functions Column -->
+                <div class="cap-column highlight">
+                    <div class="cap-head">
+                        <i class="fas fa-terminal"></i>
+                        <h3>Kodlama & Adaptasyon</h3>
+                        <small>(Uyumlu Yazılımla)</small>
+                    </div>
+                    <ul class="tech-list">
+                        <li><i class="fas fa-angle-right"></i> Gizli Özellik Açma (VAG, Ford, Fiat)</li>
+                        <li><i class="fas fa-angle-right"></i> Gaz Kelebeği & Rolanti Adaptasyonu</li>
+                        <li><i class="fas fa-angle-right"></i> Enjektör Kodlama (IMA Kodları)</li>
+                        <li><i class="fas fa-angle-right"></i> DPF Rejenerasyonu Başlatma</li>
+                        <li><i class="fas fa-angle-right"></i> Akü Tanıtma (BMS Reset)</li>
+                        <li><i class="fas fa-angle-right"></i> Servis / Bakım Işığı Sıfırlama</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Setup Section -->
+    <section id="setup" class="setup-section">
+        <div class="container">
+            <div class="section-head center">
+                <h2>3 Adımda <span class="cyan">Kolay Kurulum</span></h2>
+                <p>Teknik bilgiye gerek yok. Takın, bağlanın ve yönetin.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-num">01</div>
+                        <div class="step-icon"><i class="fas fa-plug"></i></div>
+                    </div>
+                    <h3>Cihazı Takın</h3>
+                    <p>Aracınızın direksiyon altındaki OBD2 portuna cihazı takın. (Genelde pedal üzerindedir)</p>
+                </div>
+
+                <div class="step-arrow desktop-only"><i class="fas fa-angle-right"></i></div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-num">02</div>
+                        <div class="step-icon"><i class="fab fa-bluetooth-b"></i></div>
+                    </div>
+                    <h3>Bluetooth Eşleşmesi</h3>
+                    <p>Telefonunuzun Bluetooth ayarlarından "OBDII" cihazını seçip şifre (1234) ile eşleşin.</p>
+                </div>
+
+                <div class="step-arrow desktop-only"><i class="fas fa-angle-right"></i></div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-num">03</div>
+                        <div class="step-icon"><i class="fas fa-mobile-alt"></i></div>
+                    </div>
+                    <h3>Uygulamayı Başlat</h3>
+                    <p>İndirdiğiniz uygulamayı açın. Saniyeler içinde aracınızın beynine bağlanacaksınız.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Simulation Section -->
+    <section class="simulation-section">
+        <div class="container sim-flex">
+            <div class="sim-text">
+                <h2>Canlı <span class="cyan">Veri İzleme</span></h2>
+                <p>Aracınızın gizli verilerini anlık olarak takip edin. Sıcaklık, basınç, hız ve daha fazlası
+                    parmaklarınızın ucunda.</p>
+                <div class="sim-status">
+                    <div class="status-dot"></div>
+                    <span>Cihaz Bağlı - Veri Akışı Aktif</span>
+                </div>
+            </div>
+
+            <div class="phone-mockup">
+                <div class="notch"></div>
+                <div class="screen">
+                    <div class="status-bar">
+                        <span><i class="fas fa-satellite-dish"></i> CONNECTED</span>
+                        <span>12:45 PM</span>
+                    </div>
+
+                    <!-- Ghost Cluster Dashboard -->
+                    <div class="ghost-cluster">
+                        <div class="tacho-ring">
+                            <div class="tacho-ticks"></div>
+                            <div class="tacho-needle"></div>
+                            <div class="tacho-center">
+                                <span id="sim-speed">0</span>
+                                <small>km/h</small>
+                            </div>
+                        </div>
+                        <div class="rpm-label">
+                            <span id="sim-rpm">0</span> RPM
+                        </div>
+                    </div>
+
+                    <!-- Live Data Grid -->
+                    <div class="live-grid">
+                        <div class="l-item">
+                            <i class="fas fa-thermometer-half"></i>
+                            <span id="sim-temp">90°C</span>
+                            <small>Coolant</small>
+                        </div>
+                        <div class="l-item">
+                            <i class="fas fa-car-battery"></i>
+                            <span id="sim-volt">14.2V</span>
+                            <small>Battery</small>
+                        </div>
+                        <div class="l-item">
+                            <i class="fas fa-gas-pump"></i>
+                            <span id="sim-load">32%</span>
+                            <small>Engine Load</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Apps Section -->
+    <section id="software" class="apps-section">
+        <div class="container">
+            <div class="section-head center">
+                <h2>Uyumlu <span class="cyan">Popüler</span> Uygulamalar</h2>
+                <p>Cihazımız marketteki en popüler OBD2 yazılımları ile %100 uyumlu çalışır.</p>
+            </div>
+            <div class="app-grid">
+                <a href="https://play.google.com/store/apps/details?id=org.prowl.torquefree" target="_blank"
+                    class="app-card">
+                    <div class="app-badge"><i class="fas fa-check-circle"></i> Test Edildi</div>
+                    <div class="app-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>Torque Pro</h3>
+                    <p>Android için İndir <i class="fas fa-external-link-alt"></i></p>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.ovz.carscanner" target="_blank"
+                    class="app-card">
+                    <div class="app-badge"><i class="fas fa-check-circle"></i> Test Edildi</div>
+                    <div class="app-icon"><i class="fas fa-car-side"></i></div>
+                    <h3>Car Scanner</h3>
+                    <p>iOS/Android İndir <i class="fas fa-external-link-alt"></i></p>
+                </a>
+                <a href="https://forscan.org/download.html" target="_blank" class="app-card">
+                    <div class="app-badge"><i class="fas fa-check-circle"></i> Test Edildi</div>
+                    <div class="app-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Forscan</h3>
+                    <p>Ford/Mazda - Windows & Mobil <i class="fas fa-external-link-alt"></i></p>
+                </a>
+                <a href="https://bimmercode.app/" target="_blank" class="app-card">
+                    <div class="app-badge"><i class="fas fa-check-circle"></i> Test Edildi</div>
+                    <div class="app-icon"><i class="fas fa-cog"></i></div>
+                    <h3>BimmerCode</h3>
+                    <p>BMW Kodlama - iOS/Android <i class="fas fa-external-link-alt"></i></p>
+                </a>
+                <a href="https://www.wgsoft.de/en/shop/obd-2-software-products/scanmaster-elm-for-elm327-obd-2-interface"
+                    target="_blank" class="app-card">
+                    <div class="app-badge"><i class="fas fa-check-circle"></i> Test Edildi</div>
+                    <div class="app-icon"><i class="fab fa-windows"></i></div>
+                    <h3>ScanMaster</h3>
+                    <p>Windows PC Sürümü İndir <i class="fas fa-external-link-alt"></i></p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section id="order" class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-content">
+                    <h2>Teknik Destek & Bilgi</h2>
+                    <p>Aracınızla uyumluluk ve kurulum hakkında detaylı bilgi almak için teknik ekibimize ulaşın.</p>
+                    <form id="waForm" class="modern-form">
+                        <div class="input-wrap">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="name" placeholder="Adınız Soyadınız" required>
+                        </div>
+                        <button type="submit" class="wa-submit-btn">
+                            <span>WhatsApp ile İletişime Geç</span>
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </form>
+                    <div class="secure-info">
+                        <i class="fas fa-shield-alt"></i> Ücretsiz Teknik Danışmanlık
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="f-logo">ELM327.AI</div>
+            <p>&copy; 2024 Tüm Hakları Saklıdır.</p>
+        </div>
     </footer>
+
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/905555555555" target="_blank" class="float-wa">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="script.js"></script>
 </body>
