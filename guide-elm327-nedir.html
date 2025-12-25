@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELM327 Nedir & Nasıl Çalışır? | ELM327.AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-family: var(--font-head);
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .article-meta {
+            color: var(--cyan);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article-content {
+            background: #151B2B;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .article-content h2 {
+            color: white;
+            font-family: var(--font-head);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-left: 4px solid var(--purple);
+            padding-left: 15px;
+        }
+
+        .article-content p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .article-content ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .article-content li {
+            margin-bottom: 10px;
+            list-style-type: none;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .article-content li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--cyan);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--cyan);
+            transform: translateX(-5px);
+        }
+
+        .highlight-box {
+            background: rgba(112, 0, 255, 0.1);
+            border: 1px solid var(--purple);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--cyan);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <div class="logo">ELM<span class="cyan">327</span>.AI</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="guides.html">Rehberler</a></li>
+                <li><a href="codes.html">Arıza Kodları</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-container">
+        <a href="guides.html" class="back-btn"><i class="fas fa-arrow-left"></i> Rehberlere Dön</a>
+
+        <header class="article-header">
+            <span class="article-meta">Başlangıç Rehberi</span>
+            <h1>ELM327 Nedir & Nasıl Çalışır?</h1>
+            <p style="color: var(--text-muted);">Araçların beyni ile konuşmanızı sağlayan bu küçük cihazın sırlarını
+                keşfedin.</p>
+        </header>
+
+        <article class="article-content">
+            <p><strong>ELM327</strong>, modern otomobillerin "beyni" olarak adlandırılan ECU (Electronic Control Unit)
+                ile akıllı telefonunuz veya bilgisayarınız arasında köprü kuran bir mikroçip ailesidir. Genellikle
+                "OBD-II Adaptörü" olarak satılan bu cihazlar, aracınızın sağlık durumunu anlık olarak izlemenize ve
+                sorunları tespit etmenize olanak tanır.</p>
+
+            <h2>ELM327 Ne İşe Yarar?</h2>
+            <p>Bu küçük cihazı aracınızın OBD-II portuna taktığınızda yapabilecekleriniz neredeyse sınırsızdır:</p>
+            <ul>
+                <li><strong>Arıza Kodlarını Okuma ve Silme:</strong> Motor arıza ışığınız (Check Engine) yandığında,
+                    sorunun ne olduğunu saniyeler içinde öğrenebilir ve basit hataları silebilirsiniz.</li>
+                <li><strong>Canlı Veri Takibi:</strong> Motor devri, hız, motor suyu sıcaklığı, hava emiş sıcaklığı,
+                    turbo basıncı gibi verileri anlık olarak telefon ekranınızda görebilirsiniz.</li>
+                <li><strong>Performans Testleri:</strong> 0-100 km/s hızlanma sürenizi, tork değerlerini ve beygir
+                    gücünü tahmini olarak ölçebilirsiniz.</li>
+                <li><strong>Yakıt Tüketimi Analizi:</strong> Anlık ve ortalama yakıt tüketiminizi yol bilgisayarından
+                    daha detaylı analiz edebilirsiniz.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h3><i class="fas fa-microchip"></i> Nasıl Çalışır?</h3>
+                <p>ELM327, bir tercüman gibi çalışır. Aracınızın beyni (ECU) karmaşık dijital protokollerle (ISO 15765-4
+                    CAN, KWP2000 vb.) konuşur. ELM327 çipi, bu karmaşık dili alır ve Bluetooth veya Wi-Fi üzerinden
+                    telefonunuzdaki uygulamanın (Torque, Car Scanner vb.) anlayabileceği basit verilere dönüştürür.</p>
+            </div>
+
+            <h2>Hangi Araçlarla Uyumludur?</h2>
+            <p>ELM327 cihazları, <strong>OBD-II (On-Board Diagnostics II)</strong> standardını destekleyen hemen hemen
+                tüm araçlarla çalışır:</p>
+            <ul>
+                <li><strong>Benzinli Araçlar:</strong> Avrupa'da 2001, Amerika'da 1996 sonrası üretilen çoğu model.</li>
+                <li><strong>Dizel Araçlar:</strong> Genellikle 2004 sonrası üretilen modeller.</li>
+                <li><strong>Ticari Araçlar:</strong> Hafif ticari araçların çoğu 2007 sonrasında bu desteği sunmaktadır.
+                </li>
+            </ul>
+
+            <h2>Bluetooth vs. Wi-Fi: Hangisini Seçmeliyim?</h2>
+            <p>Cihaz alırken en çok karıştırılan nokta bağlantı tipidir. İşte basit bir kural:</p>
+            <ul>
+                <li><strong>Android Kullanıcıları:</strong> Bluetooth modelleri (V1.5 önerilir) en iyi ve en stabil
+                    seçenektir.</li>
+                <li><strong>iPhone (iOS) Kullanıcıları:</strong> Apple'ın Bluetooth kısıtlamaları nedeniyle genellikle
+                    <strong>Wi-Fi</strong> veya <strong>Bluetooth 4.0 LE</strong> destekli modelleri tercih etmelisiniz.
+                    Standart ucuz Bluetooth adaptörler iPhone ile çalışmaz.</li>
+            </ul>
+
+            <p>ELM327, aracınızı tanımanız ve küçük sorunlar için servise gitmeden önce bilgi sahibi olmanız için harika
+                bir araçtır. Doğru uygulama ve adaptör ile aracınızın gizli dünyasını keşfetmeye başlayabilirsiniz.</p>
+        </article>
+    </div>
+
+    <footer>
+        <div class="container footer-content" style="text-align: center;">
+            <p>&copy; 2024 ELM327.AI - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

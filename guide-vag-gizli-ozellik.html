@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAG Grubu Gizli Özellik Açma | ELM327.AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-family: var(--font-head);
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .article-meta {
+            color: var(--cyan);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article-content {
+            background: #151B2B;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .article-content h2 {
+            color: white;
+            font-family: var(--font-head);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-left: 4px solid var(--purple);
+            padding-left: 15px;
+        }
+
+        .article-content p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .feature-item i {
+            color: var(--cyan);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--cyan);
+            transform: translateX(-5px);
+        }
+
+        .tools-box {
+            background: linear-gradient(45deg, #1a0b2e, #0B0F19);
+            border: 1px solid var(--purple);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .tools-box h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--purple);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <div class="logo">ELM<span class="cyan">327</span>.AI</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="guides.html">Rehberler</a></li>
+                <li><a href="codes.html">Arıza Kodları</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-container">
+        <a href="guides.html" class="back-btn"><i class="fas fa-arrow-left"></i> Rehberlere Dön</a>
+
+        <header class="article-header">
+            <span class="article-meta">İleri Seviye</span>
+            <h1>Gizli Özellik Açma (VAG Grubu)</h1>
+            <p style="color: var(--text-muted);">Volkswagen, Audi, Seat ve Skoda araçlarınızda fabrika çıkışında kilitli
+                olan özellikleri açın.</p>
+        </header>
+
+        <article class="article-content">
+            <p>VAG grubu araçlar, aynı elektronik altyapıyı paylaşır ancak donanım paketine göre bazı yazılımsal
+                özellikler kapatılır. ELM327 veya benzeri adaptörlerle bu özellikleri fabrikasyon yöntemlerle
+                açabilirsiniz.</p>
+
+            <h2>Neler Açılabilir? (Popüler Özellikler)</h2>
+            <div class="feature-list">
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Kadran Selamlama (Staging)</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Amerikan Park (Sinyaller)</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Viraj Aydınlatma (Sislerle)</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Geri Viteste Ayna İndirme</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Ek Yakıt Litre Göstergesi</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Kemer İkaz Sesi İptali</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Yağmurda Camların Kapanması</div>
+                <div class="feature-item"><i class="fas fa-check-circle"></i> Off-Road Menüsü</div>
+            </div>
+
+            <h2>Hangi Uygulamalar Kullanılır?</h2>
+
+            <h3>1. Carista OBD2 (Önerilen)</h3>
+            <p>En kullanıcı dostu uygulamadır. Karmaşık kodlarla (Long Coding) uğraşmanıza gerek kalmaz. Doğrudan
+                menüden "Aç/Kapat" şeklinde özellikleri yönetirsiniz. Kaliteli bir ELM327 ile çalışır ancak kendi
+                adaptörünü önerir.</p>
+
+            <h3>2. Car Scanner ELM OBD2</h3>
+            <p>Ücretsiz sürümünde bile birçok kodlama (Coding) özelliği sunar. "Coding & Service" menüsü altında MQB,
+                PQ26 vb. platformlara göre hazır scriptler bulunur.</p>
+
+            <div class="tools-box">
+                <h3><i class="fas fa-exclamation-circle"></i> Önemli Uyarılar</h3>
+                <p>Kodlama yaparken her zaman önce <strong>yedek (backup)</strong> alın. Akü voltajının yeterli
+                    olduğundan emin olun. Yanlış kodlama aracın bazı fonksiyonlarını bozabilir, bu durumda yedeği geri
+                    yüklemeniz gerekir.</p>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="container footer-content" style="text-align: center;">
+            <p>&copy; 2024 ELM327.AI - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

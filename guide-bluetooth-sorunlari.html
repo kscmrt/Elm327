@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluetooth Bağlantı Sorunları | ELM327.AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-family: var(--font-head);
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .article-meta {
+            color: var(--cyan);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article-content {
+            background: #151B2B;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .article-content h2 {
+            color: white;
+            font-family: var(--font-head);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-left: 4px solid var(--purple);
+            padding-left: 15px;
+        }
+
+        .article-content h3 {
+            color: #fff;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .article-content p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .article-content ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .article-content li {
+            margin-bottom: 10px;
+            list-style-type: none;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .article-content li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--cyan);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--cyan);
+            transform: translateX(-5px);
+        }
+
+        .alert-box {
+            background: rgba(255, 77, 77, 0.1);
+            border: 1px solid #ff4d4d;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .alert-box h4 {
+            color: #ff4d4d;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <div class="logo">ELM<span class="cyan">327</span>.AI</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="guides.html">Rehberler</a></li>
+                <li><a href="codes.html">Arıza Kodları</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-container">
+        <a href="guides.html" class="back-btn"><i class="fas fa-arrow-left"></i> Rehberlere Dön</a>
+
+        <header class="article-header">
+            <span class="article-meta">Sorun Giderme</span>
+            <h1>Bluetooth Bağlantı Sorunları & Çözümleri</h1>
+            <p style="color: var(--text-muted);">Cihazınız eşleşmiyor veya "OBDII Bulunamadı" hatası mı alıyorsunuz?
+                İşte adım adım çözüm.</p>
+        </header>
+
+        <article class="article-content">
+            <p>ELM327 cihazını kullanırken en sık karşılaşılan sorun bağlantı problemleridir. Telefonunuz cihazı
+                görmüyor veya bağlanıp hemen kopuyorsa aşağıdaki adımları sırasıyla uygulayın.</p>
+
+            <h2>Android Cihazlarda Bağlantı Sorunları</h2>
+
+            <h3>1. Bluetooth Eşleştirmesini Doğru Yapın</h3>
+            <p>İlk kurulumda ELM327'yi telefonunuzun Bluetooth ayarlarından eşleştirmeniz gerekir.</p>
+            <ul>
+                <li>Cihazı OBD portuna takın ve kontağı açın (ışıkların yandığından emin olun).</li>
+                <li>Telefonunuzun Bluetooth menüsüne gidin.</li>
+                <li><strong>OBDII</strong>, <strong>ELM327</strong> veya <strong>Vgate</strong> isminde bir cihaz
+                    arayın.</li>
+                <li>Eşleşme şifresi sorarsa genellikle: <strong>1234</strong> veya <strong>0000</strong> deneyin.
+                    Nadiren 6789 da olabilir.</li>
+                <li>Eşleşme listesinde "Bağlı" görünmese bile "Eşleşmiş Cihazlar" listesinde olması yeterlidir. Asıl
+                    bağlantıyı uygulama kuracaktır.</li>
+            </ul>
+
+            <h3>2. Uygulama İçi Ayarları Kontrol Edin</h3>
+            <p>Telefon ayarlarından eşleştirmek yetmez, uygulamanın (Örn: Torque Pro) içinden de adaptörü seçmeniz
+                gerekir.</p>
+            <ul>
+                <li>Torque Pro'yu açın: <strong>Ayarlar > OBD2 Adaptör Ayarları > Bağlantı Türü</strong> kısmına gidin
+                    ve <strong>Bluetooth</strong> seçili olduğundan emin olun.</li>
+                <li>Yine aynı menüde <strong>Bluetooth Cihazını Seç</strong> kısmından eşleştirdiğiniz "OBDII" cihazını
+                    işaretleyin.</li>
+            </ul>
+
+            <h2>iOS (iPhone) Cihazlarda Bağlantı (Önemli!)</h2>
+            <div class="alert-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> DİKKAT: Bluetooth Kısıtlaması</h4>
+                <p>iPhone kullanıcıları standart (eski tip) Bluetooth ELM327 cihazlarını kullanamazlar. Apple'ın
+                    protokol kısıtlamaları vardır.</p>
+            </div>
+            <p>Eğer iPhone kullanıyorsanız ve standart bir Bluetooth adaptör aldıysanız, Bluetooth menüsünde cihazı
+                <strong>göremeyebilirsiniz</strong>. Bu cihazın bozuk olduğu anlamına gelmez.</p>
+            <ul>
+                <li><strong>Çözüm 1:</strong> Wi-Fi özellikli bir ELM327 adaptörü kullanın.</li>
+                <li><strong>Çözüm 2:</strong> Bluetooth 4.0 (BLE) destekli özel bir adaptör kullanın.</li>
+                <li>iPhone'da eşleştirme <strong>yapılmaz</strong>. Cihazı takın, doğrudan uygulamayı (Car Scanner vb.)
+                    açın ve uygulama içinden "Bağlan" deyin.</li>
+            </ul>
+
+            <h2>Hala Bağlanamıyor musunuz?</h2>
+            <ul>
+                <li><strong>Sigortayı Kontrol Edin:</strong> OBD portunun elektriği genellikle çakmaklık sigortasıyla
+                    ortaktır. Çakmaklığınız çalışmıyorsa cihaz da çalışmaz.</li>
+                <li><strong>Başka Araçta Deneyin:</strong> Cihazın arızalı olup olmadığını anlamak için başka bir araçta
+                    test edin.</li>
+                <li><strong>Pinleri Kontrol Edin:</strong> OBD soketindeki pinlerin eğilmediğinden emin olun.</li>
+            </ul>
+        </article>
+    </div>
+
+    <footer>
+        <div class="container footer-content" style="text-align: center;">
+            <p>&copy; 2024 ELM327.AI - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

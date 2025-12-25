@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yakıt Tüketimi ve LTFT/STFT | ELM327.AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-family: var(--font-head);
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .article-meta {
+            color: var(--cyan);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article-content {
+            background: #151B2B;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .article-content h2 {
+            color: white;
+            font-family: var(--font-head);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-left: 4px solid var(--purple);
+            padding-left: 15px;
+        }
+
+        .article-content p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .data-card {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 3px solid var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .data-card.positive {
+            border-color: #00FF94;
+        }
+
+        .data-card.negative {
+            border-color: #ff4d4d;
+        }
+
+        .data-card h4 {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--cyan);
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <div class="logo">ELM<span class="cyan">327</span>.AI</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="guides.html">Rehberler</a></li>
+                <li><a href="codes.html">Arıza Kodları</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-container">
+        <a href="guides.html" class="back-btn"><i class="fas fa-arrow-left"></i> Rehberlere Dön</a>
+
+        <header class="article-header">
+            <span class="article-meta">Tasarruf & Analiz</span>
+            <h1>Yakıt Tüketimi İzleme (LTFT/STFT)</h1>
+            <p style="color: var(--text-muted);">Aracınız gerçekten ne kadar yakıyor? LPG ayarınız bozuk mu? Bilimsel
+                verilerle analiz edin.</p>
+        </header>
+
+        <article class="article-content">
+            <p>Yol bilgisayarındaki ortalama tüketim verisi bazen yanıltıcı olabilir. ELM327 ile motorun "Fuel Trim"
+                (Yakıt Düzeltme) değerlerine bakarak aracın zengin mi yoksa fakir karışımda mı çalıştığını, yani yakıtı
+                verimli yakıp yakmadığını görebilirsiniz.</p>
+
+            <h2>STFT ve LTFT Nedir?</h2>
+
+            <div class="data-card">
+                <h4>STFT (Short Term Fuel Trim)</h4>
+                <p>Kısa dönem yakıt düzeltmesi. Beynin anlık olarak yaptığı milisaniyelik düzeltmelerdir. Gaza
+                    bastığınızda hızlıca değişir.</p>
+            </div>
+
+            <div class="data-card">
+                <h4>LTFT (Long Term Fuel Trim)</h4>
+                <p>Uzun dönem yakıt düzeltmesi. Beynin zamanla öğrendiği ve hafızaya attığı ortalama düzeltme değeridir.
+                    Aracın genel sağlığını bu gösterir.</p>
+            </div>
+
+            <h2>Değerler Nasıl Yorumlanır?</h2>
+            <p>İdeal değer her zaman <strong>%0</strong>'dır. Ancak %-5 ile %+5 arası normal kabul edilir.</p>
+
+            <div class="data-card positive">
+                <h4>Pozitif Değerler (+%10 ve üzeri) - "Fakir Karışım"</h4>
+                <p>Araç hava alıyor ama yeterince yakıt alamıyor demektir. Beyin bunu kompanse etmek için yakıtı
+                    arttırıyor. <br>
+                    <strong>Sebepler:</strong> Vakum kaçağı, düşük yakıt basıncı, tıkalı enjektör.
+                </p>
+            </div>
+
+            <div class="data-card negative">
+                <h4>Negatif Değerler (-%10 ve altı) - "Zengin Karışım"</h4>
+                <p>Araçta çok fazla yakıt var, boğuluyor. Beyin yakıtı kısmaya çalışıyor. <br>
+                    <strong>Sebepler:</strong> Enjektör işemesi, tıkalı hava filtresi, yüksek yakıt basıncı.
+                </p>
+            </div>
+
+            <h2>LPG Ayarı İçin Önemi</h2>
+            <p>LPG'li araçlarda "LPG ayarı bozuk, arıza ışığı yakıyor" şikayetinin sebebi genellikle LTFT değerinin
+                %20-25 gibi uç noktalara kaymasıdır. İyi bir LPG ayarında benzin ve LPG'deki STFT/LTFT değerleri
+                birbirine çok yakın (±%5) olmalıdır.</p>
+        </article>
+    </div>
+
+    <footer>
+        <div class="container footer-content" style="text-align: center;">
+            <p>&copy; 2024 ELM327.AI - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

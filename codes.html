@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTC Arıza Kodları | ELM327 Kod Veritabanı</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-hero {
+            padding: 120px 0 60px;
+            text-align: center;
+            background: radial-gradient(circle at center, #2c0b3d 0%, #0B0F19 100%);
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-head);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        /* Search Box */
+        .search-box-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 20px 20px 20px 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: white;
+            font-size: 1.2rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-input:focus {
+            background: rgba(0, 0, 0, 0.5);
+            border-color: var(--cyan);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        /* Results Table */
+        .code-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 50px;
+            background: #151B2B;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .code-table th,
+        .code-table td {
+            text-align: left;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .code-table th {
+            background: rgba(0, 0, 0, 0.3);
+            font-family: var(--font-head);
+            color: var(--cyan);
+            font-size: 1.1rem;
+        }
+
+        .code-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .code-badge {
+            background: rgba(255, 77, 77, 0.15);
+            color: #ff4d4d;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .sys-badge {
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-right: 5px;
+        }
+
+        .upsell-alert {
+            margin-top: 50px;
+            background: linear-gradient(90deg, #1a0b2e, #0B0F19);
+            border: 1px solid var(--purple);
+            padding: 30px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .upsell-alert h4 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .upsell-alert p {
+            color: var(--text-muted);
+        }
+
+        .btn-mini-vip {
+            background: var(--purple);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .upsell-alert {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <div class="logo">ELM<span class="cyan">327</span>.AI</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="guides.html">Rehberler</a></li>
+                <li><a href="codes.html" class="active" style="color:var(--cyan)">Arıza Kodları</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <div class="container">
+            <h1>Arıza Kodu <span class="text-glow">Sorgulama</span></h1>
+            <div class="search-box-wrapper">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Kod Girin (Örn: P0300)...">
+            </div>
+        </div>
+    </header>
+
+    <section class="container" style="padding-bottom: 100px;">
+        <div class="section-head">
+            <h2>Sık Aranan <span class="cyan">Kritik</span> Kodlar</h2>
+            <p>En sık karşılaşılan motor arıza kodlarının anlamları ve kısa çözümleri.</p>
+        </div>
+
+        <div class="table-responsive">
+            <table class="code-table">
+                <thead>
+                    <tr>
+                        <th>Kod</th>
+                        <th>Sistem</th>
+                        <th>Anlamı & Olası Sebep</th>
+                    </tr>
+                </thead>
+                <tbody id="code-list">
+                    <!-- Javascript ile doldurulacak -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Upsell Banner -->
+        <div class="upsell-alert" id="no-result" style="display: none; text-align: center; justify-content: center;">
+            <h4><i class="fas fa-exclamation-circle"></i> Aradığınız kod listede yok mu?</h4>
+        </div>
+
+        <div class="upsell-alert">
+            <div>
+                <h4><i class="fas fa-search"></i> Detaylı Tamir Kılavuzu</h4>
+                <p>3000+ Arıza Kodunu ve çözüm adımlarını içeren "Tamirci El Kitabı" PDF'imizi indirin.</p>
+            </div>
+            <a href="index.html#premium" class="btn-mini-vip">Kütüphaneye Git <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2024 ELM327.AI - Tüm Arıza Kodları</p>
+        </div>
+    </footer>
+
+    <!-- Harici Veritabanı Dosyası -->
+    <script src="dtc_database.js"></script>
+
+    <script>
+        const tableBody = document.getElementById('code-list');
+        const searchInput = document.querySelector('.search-input');
+        const noResult = document.getElementById('no-result');
+
+        function renderTable(data) {
+            tableBody.innerHTML = '';
+
+            if (!data || data.length === 0) {
+                noResult.style.display = 'flex';
+                return;
+            }
+            noResult.style.display = 'none';
+
+            // İlk 50 sonucu göster (Performans için)
+            const displayedData = data.slice(0, 50);
+
+            displayedData.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><span class="code-badge">${item.code}</span></td>
+                    <td><span class="sys-badge">${item.system}</span></td>
+                    <td>${item.desc}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // İlk açılışta hepsini göster (Limitli)
+        renderTable(dtcDatabase);
+
+        // Arama Fonksiyonu
+        searchInput.addEventListener('keyup', (e) => {
+            const term = e.target.value.toUpperCase();
+
+            // Boş arama ise hepsini göster
+            if (term.length === 0) {
+                renderTable(dtcDatabase);
+                return;
+            }
+
+            const filtered = dtcDatabase.filter(item =>
+                item.code.includes(term) ||
+                item.desc.toUpperCase().includes(term) ||
+                item.system.toUpperCase().includes(term)
+            );
+            renderTable(filtered);
+        });
+    </script>
+</body>
+
+</html>

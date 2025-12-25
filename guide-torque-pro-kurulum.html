@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torque Pro Kurulum Rehberi | ELM327.AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-header h1 {
+            font-family: var(--font-head);
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .article-meta {
+            color: var(--cyan);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article-content {
+            background: #151B2B;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .article-content h2 {
+            color: white;
+            font-family: var(--font-head);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-left: 4px solid var(--purple);
+            padding-left: 15px;
+        }
+
+        .article-content p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            padding-left: 20px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .article-content li {
+            margin-bottom: 15px;
+        }
+
+        .article-content ol li {
+            list-style-type: decimal;
+            color: var(--cyan);
+            font-weight: bold;
+        }
+
+        .article-content ol li span {
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--cyan);
+            transform: translateX(-5px);
+        }
+
+        .pro-tip {
+            background: rgba(0, 240, 255, 0.05);
+            border-left: 4px solid var(--cyan);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .pro-tip h4 {
+            color: var(--cyan);
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .pro-tip p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <div class="logo">ELM<span class="cyan">327</span>.AI</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="guides.html">Rehberler</a></li>
+                <li><a href="codes.html">Arıza Kodları</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-container">
+        <a href="guides.html" class="back-btn"><i class="fas fa-arrow-left"></i> Rehberlere Dön</a>
+
+        <header class="article-header">
+            <span class="article-meta">Yazılım & Kurulum</span>
+            <h1>Torque Pro Kurulum ve Ayar Rehberi</h1>
+            <p style="color: var(--text-muted);">Dünyanın en popüler OBD-II uygulamasını A'dan Z'ye öğrenin ve
+                aracınızın tabletini oluşturun.</p>
+        </header>
+
+        <article class="article-content">
+            <p>Torque Pro, Android cihazlarda ELM327 ile en iyi çalışan uygulamadır. Sadece hata kodu okumakla kalmaz,
+                aracınızın hemen hemen tüm sensör verilerini canlı olarak izlemenizi ve kaydetmenizi sağlar.</p>
+
+            <h2>Adım Adım Kurulum</h2>
+            <ol>
+                <li><span><strong>Fiziksel Bağlantı:</strong> ELM327 cihazınızı aracın OBD2 portuna takın ve kontağı
+                        yarım çevirerek (motor çalışmasa da olur) elektrik gelmesini sağlayın.</span></li>
+                <li><span><strong>Bluetooth Eşleşmesi:</strong> Telefonunuzun Bluetooth ayarlarından cihazı bulun ve
+                        eşleştirin (Şifre: 1234 veya 0000).</span></li>
+                <li><span><strong>Uygulama Ayarı:</strong> Torque Pro'yu açın. Sol alt köşedeki dişli çark simgesine
+                        (Ayarlar) dokunun.</span></li>
+                <li><span><strong>Adaptör Seçimi:</strong> "OBD2 Adaptör Ayarları" menüsüne girin. "Bağlantı Türü"nü
+                        Bluetooth seçin ve "Bluetooth Aygıtı Seç" listesinden kendi cihazınızı işaretleyin.</span></li>
+                <li><span><strong>Profil Oluşturma:</strong> Ana menüden "Araç Profili" kısmına girin. Aracınızın motor
+                        hacmi, ağırlığı, yakıt tipi gibi bilgileri doğru girerseniz, güç ve tüketim hesaplamaları çok
+                        daha hassas olur.</span></li>
+            </ol>
+
+            <h2>Dashboard (Gösterge Paneli) Özelleştirme</h2>
+            <p>Torque Pro'nun en güçlü yanı "Realtime Information" ekranıdır. Burayı tamamen kişiselleştirebilirsiniz:
+            </p>
+            <ul>
+                <li>Ekran boş bir yerine <strong>basılı tutun</strong> ve "Add Display" (Gösterge Ekle) deyin.</li>
+                <li>Eklemek istediğiniz tipi seçin (Kadran, Grafik, Dijital Sayı vb.).</li>
+                <li>Listeden görmek istediğiniz sensörü seçin (Örn: Coolant Temperature - Su Sıcaklığı).</li>
+                <li>Göstergeyi ekrana sürükleyip bırakın. Boyutunu ayarlamak için üzerine tekrar basılı tutabilirsiniz.
+                </li>
+            </ul>
+
+            <div class="pro-tip">
+                <h4><i class="fas fa-lightbulb"></i> İpucu: Turbo Basıncı</h4>
+                <p>Turbo basıncını görmek için "Vacuum/Boost" sensörünü ekleyin. Eğer eksi değerler görüyorsanız
+                    (Vakum), gaza bastığınızda pozitife dönecektir. Atmosferik araçlarda sadece vakum (eksi değer)
+                    görülmesi normaldir.</p>
+            </div>
+
+            <h2>Arıza Tespiti ve Silme</h2>
+            <p>Ana menüden "Fault Codes" (Hata Kodları) simgesine tıklayın. Ardından büyüteç simgesine basarak taramayı
+                başlatın. Uygulama, aracın beynindeki kayıtlı hataları bulacaktır. Hataların üzerine tıklayarak
+                internette ne anlama geldiğini araştırabilir veya sağ üst köşedeki menüden "Clear logged faults" diyerek
+                hataları silebilirsiniz.</p>
+        </article>
+    </div>
+
+    <footer>
+        <div class="container footer-content" style="text-align: center;">
+            <p>&copy; 2024 ELM327.AI - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

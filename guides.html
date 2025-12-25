@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELM327 Rehberler | Kurulum & Kullanım</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-hero {
+            padding: 150px 0 80px;
+            text-align: center;
+            background: radial-gradient(circle at top, #1a2236 0%, #0B0F19 100%);
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-head);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding-bottom: 100px;
+        }
+
+        .guide-card {
+            background: #151B2B;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-10px);
+            background: #1a2236;
+            border-color: var(--cyan);
+        }
+
+        .g-img {
+            height: 200px;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-muted);
+        }
+
+        .g-content {
+            padding: 30px;
+        }
+
+        .g-tag {
+            color: var(--cyan);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .guide-card h3 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            font-family: var(--font-head);
+        }
+
+        .guide-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .read-more {
+            margin-top: auto;
+            padding-top: 20px;
+            color: var(--cyan);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <div class="logo">ELM<span class="cyan">327</span>.AI</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="index.html#features">Yetenekler</a></li>
+                <li><a href="guides.html" class="active" style="color:var(--cyan)">Rehberler</a></li>
+                <li><a href="codes.html">Arıza Kodları</a></li>
+            </ul>
+            <a href="index.html#order" class="nav-cta"><i class="fab fa-whatsapp"></i> Uzmana Danış</a>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <div class="container">
+            <h1>ELM327 <span class="cyan">Akademi</span></h1>
+            <p>Cihazınızı en verimli şekilde kullanmanız için hazırladığımız detaylı rehberler ve ipuçları.</p>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="guide-grid">
+            <!-- Article 1 -->
+            <a href="guide-elm327-nedir.html" class="guide-card">
+                <div class="g-img"><i class="fas fa-plug"></i></div>
+                <div class="g-content">
+                    <span class="g-tag">Başlangıç</span>
+                    <h3>ELM327 Nedir & Nasıl Çalışır?</h3>
+                    <p>OBD-II protokollerinin tarihi, ELM327 çipinin çalışma mantığı ve aracınızın beyni ile nasıl
+                        konuştuğu hakkında her şey.</p>
+                    <div class="read-more">Okumaya Başla <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <!-- Article 2 -->
+            <a href="guide-bluetooth-sorunlari.html" class="guide-card">
+                <div class="g-img"><i class="fab fa-bluetooth"></i></div>
+                <div class="g-content">
+                    <span class="g-tag">Sorun Giderme</span>
+                    <h3>Bluetooth Bağlantı Sorunları</h3>
+                    <p>Cihaz eşleşmiyor mu? "OBDII bulunamadı" hatası mı alıyorsunuz? İşte adım adım çözüm yolları.</p>
+                    <div class="read-more">Çözümü Gör <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <!-- Article 3 -->
+            <a href="guide-torque-pro-kurulum.html" class="guide-card">
+                <div class="g-img"><i class="fas fa-mobile-alt"></i></div>
+                <div class="g-content">
+                    <span class="g-tag">Yazılım</span>
+                    <h3>Torque Pro Kurulum Rehberi</h3>
+                    <p>En popüler Android uygulamasının detaylı kurulumu, sensör ekleme ve özel dashboard tasarımı.</p>
+                    <div class="read-more">Rehberi İncele <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <!-- Article 4 -->
+            <a href="guide-check-engine.html" class="guide-card">
+                <div class="g-img"><i class="fas fa-car-crash"></i></div>
+                <div class="g-content">
+                    <span class="g-tag">Pratik Bilgi</span>
+                    <h3>Check Engine Neden Yanar?</h3>
+                    <p>Motor arıza ışığının yanmasına sebep olan en yaygın 10 sebep ve bunları ELM327 ile nasıl tespit
+                        edebileceğiniz.</p>
+                    <div class="read-more">Öğrenin <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <!-- Article 5 -->
+            <a href="guide-vag-gizli-ozellik.html" class="guide-card">
+                <div class="g-img"><i class="fas fa-magic"></i></div>
+                <div class="g-content">
+                    <span class="g-tag">İleri Seviye</span>
+                    <h3>Gizli Özellik Açma (VAG)</h3>
+                    <p>Volkswagen, Seat, Skoda ve Audi araçlarda Carista veya özel yazılımlarla kilitli özellikleri
+                        nasıl açarsınız?</p>
+                    <div class="read-more">Detaylar <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <!-- Article 6 -->
+            <a href="guide-yakit-tuketimi.html" class="guide-card">
+                <div class="g-img"><i class="fas fa-gas-pump"></i></div>
+                <div class="g-content">
+                    <span class="g-tag">Tasarruf</span>
+                    <h3>Yakıt Tüketimi İzleme</h3>
+                    <p>Anlık yakıt verisi, LTFT/STFT değerleri ile aracınızın yakıt verimliliğini nasıl analiz
+                        edersiniz?</p>
+                    <div class="read-more">Analiz Et <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="f-logo">ELM327.AI</div>
+            <p>&copy; 2024 Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
